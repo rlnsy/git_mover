@@ -5,8 +5,8 @@ def check_res(r):
 	#if the response status code is a failure (outside of 200 range)
 	if r.status_code < 200 or r.status_code >= 300:
 		#print the status code and associated response. Return false
-		print "STATUS CODE: "+str(r.status_code)
-		print "ERROR MESSAGE: "+r.text
+		print("STATUS CODE: " + str(r.status_code))
+		print("ERROR MESSAGE: " + r.text)
 		#if error, return False
 		return False
 	#if successful, return True
@@ -96,7 +96,7 @@ def create_milestones(milestones, destination_url, destination, credentials):
 			#map the original source milestone's number to the newly created milestone's number
 			milestone_map[milestone['number']] = returned_milestone['number']
 		else:
-			print status
+			print(status)
 	return milestone_map
 
 '''
@@ -216,7 +216,7 @@ def main():
 			sys.stderr.write('ERROR: Milestones failed to be retrieved. Exiting...')
 			quit()
 		else:
-			print "No milestones found. None migrated"
+			print("No milestones found. None migrated")
 
 	if args.labels:
 		labels = download_labels(source_root, source_repo, source_credentials)
@@ -226,7 +226,7 @@ def main():
 			sys.stderr.write('ERROR: Labels failed to be retrieved. Exiting...')
 			quit()
 		else:
-			print "No Labels found. None migrated"
+			print("No Labels found. None migrated")
 
 	if args.issues:
 		issues = download_issues(source_root, source_repo, source_credentials)
@@ -239,7 +239,7 @@ def main():
 			sys.stderr.write('ERROR: Issues failed to be retrieved. Exiting...')
 			quit()
 		else:
-			print "No Issues found. None migrated"
+			print("No Issues found. None migrated")
 
 if __name__ == "__main__":
 	main()
